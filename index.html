@@ -1,47 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecionando...</title>
-    <!-- GA4 tracking -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=SEU_GA4_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'SEU_GA4_ID');
-
-        // Função para rastrear o clique com GA4
-        function trackRedirect(destination) {
-            gtag('event', 'redirect_click', {
-                'event_category': 'Redirecionamento',
-                'event_label': destination,
-                'value': 1
-            });
-        }
-
-        // Redirecionamento dinâmico com delay para rastrear o clique
-        function redirectTo(destination) {
-            trackRedirect(destination); // Rastreia o clique
-            setTimeout(() => {
-                window.location.href = destination; // Redireciona após 1 segundo
-            }, 1000);
-        }
-    </script>
+    <title>Página de Redirecionamento</title>
 </head>
 <body>
-    <script>
-        // Extrai o link do parâmetro "url" na query string
-        const urlParams = new URLSearchParams(window.location.search);
-        const destination = urlParams.get('url');
-
-        if (destination) {
-            redirectTo(destination); // Inicia o redirecionamento
-        } else {
-            document.body.innerHTML = "<p>Erro: nenhum link de destino especificado.</p>";
-        }
-    </script>
-    <p>Redirecionando... Aguarde um momento.</p>
+    <h1>Página de Redirecionamento</h1>
+    <p>Bem-vindo à página de redirecionamento! Aqui será exibido o conteúdo antes do redirecionamento.</p>
 </body>
 </html>
