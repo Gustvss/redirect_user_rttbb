@@ -1,24 +1,30 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Redirecionamento</title>
+    <!-- Código de rastreamento do GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YYWDKQPVXD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YYWDKQPVXD');  // Substitua pelo seu ID de medição GA4
+    </script>
     <script type="text/javascript">
-        // Função para redirecionar
+        // Função para redirecionar e capturar o evento no GA4
         function redirectToPage() {
-            // Defina o link de destino aqui
-            var urlDestino = "https://forbes.com.br/forbes-money/2024/11/com-trump-eua-voltam-as-origens-entenda-como-isso-afeta-sua-vida/";  // Substitua com a URL de destino
-            window.location.href = urlDestino;  // Redireciona o usuário
+            // Enviar evento de clique para o GA4
+            gtag('event', 'redirecionamento', {
+                'event_category': 'Redirecionamento',
+                'event_label': 'Notícia de exemplo',  // Você pode personalizar a descrição do evento
+            });
+
+            // Redirecionar para a página de destino
+            var urlDestino = "https://forbes.com.br/forbes-money/2024/11/com-trump-eua-voltam-as-origens-entenda-como-isso-afeta-sua-vida/";  // Substitua com o link de destino
+            window.location.href = urlDestino;
         }
 
-        // Defina o tempo de espera antes do redirecionamento, por exemplo, 3 segundos
-        setTimeout(redirectToPage, 3000);  // 3000 milissegundos = 3 segundos
+        // Redirecionamento após o tempo definido
+        setTimeout(redirectToPage, 1000);  // 3000 milissegundos = 3 segundos
     </script>
 </head>
-<body>
-    <h1>Página de Redirecionamento</h1>
-    <p>Você será redirecionado em breve...</p>
-    <p>Se o redirecionamento não ocorrer, <a href="https://forbes.com.br/forbes-money/2024/11/com-trump-eua-voltam-as-origens-entenda-como-isso-afeta-sua-vida/">clique aqui</a>.</p>  <!-- Link manual, caso o redirecionamento falhe -->
-</body>
-</html>
