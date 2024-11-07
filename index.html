@@ -13,18 +13,26 @@
     <script type="text/javascript">
         // Função para redirecionar e capturar o evento no GA4
         function redirectToPage() {
-            // Enviar evento de clique para o GA4
-            gtag('event', 'redirecionamento', {
-                'event_category': 'Redirecionamento',
-                'event_label': 'Notícia de exemplo',  // Você pode personalizar a descrição do evento
-            });
+            // Capturar o parâmetro 'url' da URL
+            var urlDestino = new URLSearchParams(window.location.search).get('url');
 
-            // Redirecionar para a página de destino
-            var urlDestino = "https://forbes.com.br/forbes-money/2024/11/com-trump-eua-voltam-as-origens-entenda-como-isso-afeta-sua-vida/";  // Substitua com o link de destino
-            window.location.href = urlDestino;
+            // Verificar se o parâmetro 'url' foi passado
+            if (urlDestino) {
+                // Enviar evento de clique para o GA4
+                gtag('event', 'redirecionamento', {
+                    'event_category': 'Redirecionamento',
+                    'event_label': urlDestino,  // Passa a URL de destino como label do evento
+                });
+
+                // Redirecionar para a página de destino
+                window.location.href = urlDestino;
+            } else {
+                // Caso o parâmetro 'url' não tenha sido passado, redirecionar para uma página padrão ou mostrar mensagem de erro
+                alert('URL de destino não fornecida.');
+            }
         }
 
         // Redirecionamento após o tempo definido
-        setTimeout(redirectToPage, 1000);  // 3000 milissegundos = 3 segundos
+        setTimeout(redirectToPage, 1000);  // 1000 milissegundos = 1 segundo
     </script>
 </head>
